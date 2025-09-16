@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - Passa a Bola</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Passa a Bola ⚽</h1>
+  </div>
+
+  <h2>Crie sua Conta</h2>
+  <form id="registerForm">
+    <input type="text" id="username" placeholder="Escolha um usuário" required>
+    <input type="password" id="password" placeholder="Crie uma senha" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+  <p id="errorMsg" style="color:red; text-align: center; margin-top: 10px;"></p>
+
+  <p style="text-align: center; margin-top: 20px;">
+    Já tem uma conta? <a href="index.html">Faça o login</a>
+  </p>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

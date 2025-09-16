@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Passa a Bola ⚽ - Ferramentas de Desenvolvimento</h1>
+            <p>Testes unitários, documentação de API e geração de dados de teste</p>
+        </div>
+        <h2>Perfil do Usuário</h2>
+        <nav>
+            <a href="home.html">Home</a> |
+            <a href="dashboard.html">Dashboard</a> |
+            <a href="perfil.html">Perfil</a> |
+            <a href="tests.html">Ferramentas de Desenvolvimento</a> |
+            <a href="#" onclick="logout()">Sair</a>
+        </nav>
+
+        <div class="dashboard">
+            <!-- Testes Unitários -->
+            <div class="card">
+                <h2>Testes Unitários</h2>
+                <p>Verifique as camadas críticas do sistema com testes automatizados</p>
+
+                <button class="btn" onclick="runAllTests()">Executar Todos os Testes</button>
+
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchTab('auth-tests')">Autenticação</div>
+                        <div class="tab" onclick="switchTab('api-tests')">API</div>
+                        <div class="tab" onclick="switchTab('storage-tests')">Armazenamento</div>
+                    </div>
+
+                    <div id="auth-tests" class="tab-content active">
+                        <button class="btn" onclick="runAuthTests()">Testar Autenticação</button>
+                        <ul>
+                            <li>Registro de usuário</li>
+                            <li>Login e logout</li>
+                            <li>Validação de credenciais</li>
+                        </ul>
+                    </div>
+
+                    <div id="api-tests" class="tab-content">
+                        <button class="btn" onclick="runApiTests()">Testar API</button>
+                        <ul>
+                            <li>Consulta de clima</li>
+                            <li>Resposta de erro</li>
+                            <li>Formatação de dados</li>
+                        </ul>
+                    </div>
+
+                    <div id="storage-tests" class="tab-content">
+                        <button class="btn" onclick="runStorageTests()">Testar Armazenamento</button>
+                        <ul>
+                            <li>Leitura/gravação localStorage</li>
+                            <li>Persistência de dados</li>
+                            <li>Limpeza de dados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="test-results">
+                    <h3>Resultados:</h3>
+                    <div id="test-results" class="log"></div>
+                </div>
+            </div>
+
+            <!-- Documentação de Endpoints -->
+            <div class="card">
+                <h2>Documentação de Endpoints</h2>
+                <p>Descrição detalhada dos pontos de acesso à API</p>
+
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchDocTab('auth-endpoints')">Autenticação</div>
+                        <div class="tab" onclick="switchDocTab('weather-endpoints')">Clima</div>
+                    </div>
+
+                    <div id="auth-endpoints" class="tab-content active">
+                        <h3>POST /register</h3>
+                        <p>Registra um novo usuário no sistema</p>
+                        <pre><code>{
+  "username": "string",
+  "password": "string"
+}</code></pre>
+
+                        <h3>POST /login</h3>
+                        <p>Autentica um usuário no sistema</p>
+                        <pre><code>{
+  "username": "string",
+  "password": "string"
+}</code></pre>
+                    </div>
+
+                    <div id="weather-endpoints" class="tab-content">
+                        <h3>GET /weather?city={cidade}</h3>
+                        <p>Retorna dados meteorológicos para a cidade especificada</p>
+                        <pre><code>{
+  "name": "São Paulo",
+  "country": "BR",
+  "temp": 25.5,
+  "description": "nublado",
+  "humidity": 78,
+  "icon": "04d"
+}</code></pre>
+
+                        <h3>Respostas de Erro</h3>
+                        <pre><code>{
+  "error": "Cidade não encontrada"
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Script de Seed</h2>
+                <p>Geração de dados de teste para desenvolvimento e validação</p>
+
+                <button class="btn" onclick="generateTestData()">Gerar Dados de Teste</button>
+                <button class="btn btn-secondary" onclick="generateWeatherData()">Gerar Dados de Clima</button>
+                <button class="btn btn-danger" onclick="clearAllData()">Limpar Todos os Dados</button>
+
+                <h3>Opções de Geração:</h3>
+                <div>
+                    <input type="number" id="userCount" min="1" max="20" value="5" style="padding: 8px; width: 60px;">
+                    <label for="userCount">usuários</label>
+                </div>
+
+                <div class="log" id="seed-log">Pronto para gerar dados de teste...</div>
+
+                <h3>Dados Gerados:</h3>
+                <div class="test-results">
+                    <p>Usuários: <span id="user-count">0</span></p>
+                    <p>Cidades com clima: <span id="city-count">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/test.js"></script>
+</body>
+
+</html>
