@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (users[user] && users[user] === pass) {
         localStorage.setItem("user", user);
-        window.location.href = "home.html";
+        window.location.href = "src/pages/home.html";
       } else {
         errorMsgEl.innerText = "Usuário ou senha inválidos!";
       }
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         users[user] = pass; 
         saveUsers(users); 
         alert("Cadastro realizado com sucesso! Faça o login para continuar.");
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
       }
     });
   }
@@ -49,5 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function logout() {
   localStorage.removeItem("user");
-  window.location.href = "index.html";
+  window.location.href = "/index.html";
 }

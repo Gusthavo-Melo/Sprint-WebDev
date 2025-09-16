@@ -4,19 +4,6 @@
   box-sizing: border-box;
 }
 
-.login {
-  padding: 14px;
-  background: #2ecc71;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-}
-
 body {
   font-family: 'Poppins', 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #8e44ad 0%, #6c5ce7 100%);
@@ -299,6 +286,10 @@ code {
 
 .btn-danger:hover {
   background: #c0392b;
+}
+
+.test-results h3 {
+  color: #000000;
 }
 
 .test-results {
